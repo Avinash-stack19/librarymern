@@ -32,7 +32,7 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/user/me", {
+        const response = await axios.get("/api/user/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserData({ ...response.data, password: "" });
@@ -51,7 +51,7 @@ const UserProfile = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put("http://localhost:5000/api/user/me", userData, {
+      await axios.put("/api/user/me", userData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setEditMode(false);
@@ -66,7 +66,7 @@ const UserProfile = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete("http://localhost:5000/api/user/me", {
+      await axios.delete("/api/user/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       logout();
