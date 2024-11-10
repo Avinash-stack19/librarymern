@@ -34,7 +34,7 @@ const AvailableBooks = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/user/ebooks", {
+        const res = await axios.get("/api/user/ebooks", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setBooks(res.data);
@@ -74,7 +74,7 @@ const AvailableBooks = () => {
   const requestBook = async (bookId) => {
     try {
       await axios.post(
-        `http://localhost:5000/api/user/ebooks/${bookId}/request`,
+        `/api/user/ebooks/${bookId}/request`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
