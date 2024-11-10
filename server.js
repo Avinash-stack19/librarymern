@@ -26,11 +26,12 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/librarian', require('./routes/librarian'));
 app.use('/api/user', require('./routes/user'));
 
+if(process.env.NODE_ENV === "production"){
 const dirPath = path.resolve();
 app.use(express.static("frontend/build"));
 app.get("*",(req,res)=> {
     res.sendFile(path.resolve(dirPath,"frontend","build","index.html"));
         })
-
+}
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
