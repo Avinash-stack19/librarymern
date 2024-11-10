@@ -32,6 +32,5 @@ app.get("*",(req,res)=> {
     res.sendFile(path.resolve(dirPath,"frontend","build","index.html"));
         })
 
-const PORT = 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
